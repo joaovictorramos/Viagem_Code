@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="post" th:object="${dtoPassenger}" >
+        <div>
+            <label for="userLogin">Login: </label>
+            <input type="text" name="userLogin" id="userLogin" placeholder="Digite seu email" th:field="*{emailPassenger}" required>
+            <small th:if="${#fields.hasErrors('emailPassenger')}" th:errors="*{emailPassenger}"></small>
+        </div>
+        <div>
+            <label for="userPassword">Password: </label>
+            <input type="password" name="userPassoword" id="userPassword" placeholder="Digite sua senha" th:field="*{passwordPassenger}" required>
+            <small th:if="${#fields.hasErrors('passwordPassenger')}" th:errors="*{passwordPassenger}"></small>
+        </div>
+        <input type="submit" value="Submit">
+        <br>
+        <small th:if="${error != null}" th:text="${error}"></small>
+    </form>
+    <a th:href="@{cadastro}">Cadastre-se</a>
+</body>
+</html>

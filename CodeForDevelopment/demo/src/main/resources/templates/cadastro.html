@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Provide your data: </h3>
+    <form action="/registrationPassenger" method="post" th:object="${passenger}">
+        <div>
+            <label for="firstName">First name: </label>
+            <input type="text" name="firstName" id="firstName" placeholder="Ex: João Reis" th:field="*{firstName}" required>
+            <small th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small>
+        </div>
+        
+        <div>
+            <label for="lastname">Lastname: </label>
+            <input type="text" name="lastname" id="lastname" placeholder="Ex: Motta" th:field="*{lastname}" required>
+            <small th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></small>
+        </div>
+
+       <div>
+           <label for="emailPassenger">Email: </label>
+           <input type="text" name="emailPassenger" id="emailPassenger" placeholder="Ex: joao1@gmail.com" th:field="*{emailPassenger}" required>
+           <small th:if="${#fields.hasErrors('emailPassenger')}" th:errors="*{emailPassenger}"></small>
+       </div>
+
+       <div>
+           <label for="passwordPassenger">Password: </label>
+           <input type="password" name="passwordPassenger" id="passwordPassenger" placeholder="Ex: 1234" th:field="*{passwordPassenger}" required>
+           <small th:if="${#fields.hasErrors('passwordPassenger')}" th:errors="*{passwordPassenger}"></small>
+       </div>
+
+       <input type="submit" value="Submit">
+       <br>
+       <small th:if="${message != null}" th:text="${message}"></small>
+    </form>
+    <a th:href="@{/}">Voltar</a>
+</body>
+</html>

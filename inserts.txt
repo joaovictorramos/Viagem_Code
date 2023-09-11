@@ -1,0 +1,4 @@
+insert into tb_passenger
+(email_passenger, password_passenger, birth_date, cpf_passenger, first_name, lastname, nationality, phone_passenger, profession, registration_date, rg_passenger,sex)
+values
+('joao1@gmail.com', '1234', null, null, null, null, null, null, null, null, null, null)
